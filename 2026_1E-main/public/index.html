@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tetris AI Lab | Master</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Master Application</p>
+          <h1>Tetris AI training arena</h1>
+          <p class="lede">
+            The master page owns the game state for both students. Clients can poll state,
+            decide on a move, and send commands back through the API.
+          </p>
+        </div>
+        <div class="toolbar">
+          <button id="resetButton" class="button button-solid">Reset match</button>
+          <button id="pauseButton" class="button">Pause</button>
+          <button id="resumeButton" class="button">Resume</button>
+        </div>
+      </section>
+
+      <section class="status-bar">
+        <div class="status-card">
+          <span class="status-label">Tick rate</span>
+          <strong id="tickRate">-</strong>
+        </div>
+        <div class="status-card">
+          <span class="status-label">Match state</span>
+          <strong id="matchState">-</strong>
+        </div>
+        <div class="status-card">
+          <span class="status-label">Started at</span>
+          <strong id="startedAt">-</strong>
+        </div>
+        <div class="status-card">
+          <span class="status-label">Last reset</span>
+          <strong id="lastReset">-</strong>
+        </div>
+      </section>
+
+      <section class="grid-two">
+        <article class="board-card">
+          <div class="board-header">
+            <div>
+              <p class="board-title">Player 1</p>
+              <p class="board-subtitle">Open <code>/client.html?player=1</code></p>
+            </div>
+            <div class="scorebox">
+              <span>Score</span>
+              <strong id="player1Score">0</strong>
+            </div>
+          </div>
+          <canvas id="player1Canvas" width="300" height="600"></canvas>
+          <div class="board-meta">
+            <span>Lines: <strong id="player1Lines">0</strong></span>
+            <span>Next: <strong id="player1Next">-</strong></span>
+            <span>Status: <strong id="player1Status">Waiting</strong></span>
+            <span>Connected: <strong id="player1Connected">No</strong></span>
+            <span>Ready: <strong id="player1Ready">No</strong></span>
+          </div>
+        </article>
+
+        <article class="board-card">
+          <div class="board-header">
+            <div>
+              <p class="board-title">Player 2</p>
+              <p class="board-subtitle">Open <code>/client.html?player=2</code></p>
+            </div>
+            <div class="scorebox">
+              <span>Score</span>
+              <strong id="player2Score">0</strong>
+            </div>
+          </div>
+          <canvas id="player2Canvas" width="300" height="600"></canvas>
+          <div class="board-meta">
+            <span>Lines: <strong id="player2Lines">0</strong></span>
+            <span>Next: <strong id="player2Next">-</strong></span>
+            <span>Status: <strong id="player2Status">Waiting</strong></span>
+            <span>Connected: <strong id="player2Connected">No</strong></span>
+            <span>Ready: <strong id="player2Ready">No</strong></span>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script type="module" src="/master.js"></script>
+  </body>
+</html>

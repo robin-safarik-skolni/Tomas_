@@ -1,0 +1,263 @@
+:root {
+  --bg: #f3efe6;
+  --panel: rgba(255, 250, 240, 0.82);
+  --panel-solid: #fffaf1;
+  --ink: #1f2a22;
+  --muted: #59645b;
+  --line: rgba(31, 42, 34, 0.14);
+  --accent: #cc5a2f;
+  --accent-strong: #8b2e16;
+  --shadow: 0 18px 60px rgba(76, 48, 25, 0.14);
+  --font-display: "Avenir Next", "Trebuchet MS", sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: var(--font-body);
+  background:
+    radial-gradient(circle at top left, rgba(204, 90, 47, 0.22), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(68, 119, 88, 0.18), transparent 24%),
+    linear-gradient(145deg, #efe8d9, #f8f3ea 46%, #f0eadf);
+}
+
+canvas {
+  width: 100%;
+  display: block;
+  background:
+    linear-gradient(180deg, rgba(16, 19, 17, 0.96), rgba(36, 41, 37, 0.98));
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+code,
+pre,
+input,
+select,
+button {
+  font-family: inherit;
+}
+
+.shell {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+}
+
+.shell-client {
+  max-width: 1320px;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: end;
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--accent-strong);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6vw, 4.3rem);
+  line-height: 0.95;
+}
+
+.lede {
+  max-width: 760px;
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.toolbar,
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.button,
+select,
+input {
+  min-height: 44px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.5);
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+
+.button {
+  cursor: pointer;
+  transition: transform 140ms ease, background 140ms ease;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+}
+
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+  transform: none;
+}
+
+.button-solid {
+  background: var(--accent);
+  color: #fff;
+  border-color: transparent;
+}
+
+.status-bar,
+.grid-two,
+.client-layout {
+  display: grid;
+  gap: 18px;
+}
+
+.status-bar {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  margin-bottom: 18px;
+}
+
+.grid-two {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.client-layout {
+  grid-template-columns: minmax(320px, 760px) minmax(280px, 360px);
+  align-items: start;
+}
+
+.status-card,
+.board-card,
+.control-card {
+  background: var(--panel);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.status-card {
+  border-radius: 24px;
+  padding: 18px 20px;
+}
+
+.status-label {
+  display: block;
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.board-card,
+.control-card {
+  border-radius: 30px;
+  padding: 18px;
+}
+
+.board-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: start;
+  margin-bottom: 14px;
+}
+
+.board-title,
+.board-subtitle {
+  margin: 0;
+}
+
+.board-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.board-subtitle {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.scorebox {
+  min-width: 82px;
+  padding: 10px 12px;
+  border-radius: 18px;
+  background: var(--panel-solid);
+  text-align: center;
+  border: 1px solid var(--line);
+}
+
+.scorebox span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.scorebox strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 1.3rem;
+}
+
+.board-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 12px;
+  color: var(--muted);
+}
+
+.control-group {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.control-group label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.hint {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.bot-log {
+  margin: 0;
+  padding: 14px;
+  min-height: 96px;
+  border-radius: 18px;
+  background: rgba(29, 33, 30, 0.94);
+  color: #f0f4ef;
+  overflow: auto;
+}
+
+@media (max-width: 980px) {
+  .hero,
+  .client-layout {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+}

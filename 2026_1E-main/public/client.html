@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tetris AI Lab | Client</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell shell-client">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Student Client</p>
+          <h1>AI sandbox and controller</h1>
+          <p class="lede">
+            This page can drive a player on the master server or run the same Tetris rules
+            locally so students can iterate on their bot without touching the server.
+          </p>
+        </div>
+      </section>
+
+      <section class="client-layout">
+        <article class="board-card">
+          <div class="board-header">
+            <div>
+              <p class="board-title">Current board</p>
+              <p class="board-subtitle">Visualization shared by remote and local mode</p>
+            </div>
+            <div class="scorebox">
+              <span>Player</span>
+              <strong id="playerIndicator">1</strong>
+            </div>
+          </div>
+          <canvas id="clientCanvas" width="300" height="600"></canvas>
+          <div class="board-meta">
+            <span>Score: <strong id="clientScore">0</strong></span>
+            <span>Lines: <strong id="clientLines">0</strong></span>
+            <span>Next: <strong id="clientNext">-</strong></span>
+            <span>Status: <strong id="clientStatus">Idle</strong></span>
+          </div>
+        </article>
+
+        <aside class="control-card">
+          <div class="control-group">
+            <label for="modeSelect">Mode</label>
+            <select id="modeSelect">
+              <option value="remote">Remote master server</option>
+              <option value="local">Local sandbox</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label for="playerSelect">Remote player slot</label>
+            <select id="playerSelect">
+              <option value="1">Player 1</option>
+              <option value="2">Player 2</option>
+            </select>
+          </div>
+
+          <div class="control-group">
+            <label for="apiBaseInput">API base URL</label>
+            <input id="apiBaseInput" type="text" value="" placeholder="Same origin by default" />
+          </div>
+
+          <div class="control-group">
+            <label>Remote match lobby</label>
+            <div class="button-row">
+              <button id="readyToggle" class="button button-solid">Mark ready</button>
+            </div>
+            <p id="remoteLobbyStatus" class="hint">
+              Waiting to connect to the master server.
+            </p>
+          </div>
+
+          <div class="control-group">
+            <label for="autoplayToggle">Autoplay</label>
+            <button id="autoplayToggle" class="button">Start bot</button>
+          </div>
+
+          <div class="control-group">
+            <label>Manual commands</label>
+            <div class="button-row">
+              <button data-command="left" class="button">Left</button>
+              <button data-command="right" class="button">Right</button>
+              <button data-command="rotate" class="button">Rotate</button>
+              <button data-command="down" class="button">Down</button>
+              <button data-command="drop" class="button button-solid">Drop</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>Sandbox actions</label>
+            <div class="button-row">
+              <button id="localResetButton" class="button">Reset local game</button>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>Student hook</label>
+            <p class="hint">
+              Edit <code>/public/student-bot.js</code>. The client imports your function and
+              calls it with the latest game snapshot.
+            </p>
+          </div>
+
+          <div class="control-group">
+            <label>Latest decision</label>
+            <pre id="botLog" class="bot-log">No commands yet.</pre>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <script type="module" src="/client.js"></script>
+  </body>
+</html>
